@@ -14,7 +14,7 @@ public class Review {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private long Id;
 
 	private String name;
 	private String image;
@@ -39,7 +39,7 @@ public class Review {
 	}
 
 	public long getId() {
-		return id;
+		return Id;
 	}
 	
 	public String getImage() {
@@ -62,7 +62,7 @@ public class Review {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (Id ^ (Id >>> 32));
 		return result;
 	}
 
@@ -75,7 +75,7 @@ public class Review {
 		if (getClass() != obj.getClass())
 			return false;
 		Review other = (Review) obj;
-		if (id != other.id)
+		if (Id != other.Id)
 			return false;
 		return true;
 	}

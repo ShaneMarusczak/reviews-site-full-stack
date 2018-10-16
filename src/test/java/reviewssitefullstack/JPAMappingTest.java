@@ -40,7 +40,7 @@ public class JPAMappingTest {
 
 		Optional<Review> result = reviewRepo.findById(reviewId);
 		Review finalResult = result.get();
-		assertThat(finalResult.getTitle(), is("Review"));
+		assertThat(finalResult.getName(), is("Review"));
 
 	}
 
