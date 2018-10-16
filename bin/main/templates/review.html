@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https//www.thymeleaf.org">
+<head>
+<title th:text="${review.name}"></title>
+<link rel="stylesheet" type="text/css"
+	href="/css/ReviewPageStyleSheet.css" />
+</head>
+<body>
+
+	<h1 id="heading" th:text="${review.name}"></h1>
+
+	<figure>
+		<img id="picture" th:src="@{/images/{image}(image=${review.image})}" />
+	</figure>
+
+
+	<p id="content" th:text="${review.content}"></p>
+</body>
+</html>

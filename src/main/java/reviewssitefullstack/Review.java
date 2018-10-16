@@ -16,7 +16,7 @@ public class Review {
 	@GeneratedValue
 	private long id;
 
-	private String title;
+	private String name;
 	private String image;
 	private String content;
 
@@ -27,8 +27,8 @@ public class Review {
 	Review() {
 	}
 
-	Review(String title, String image, String content, Category... categories) {
-		this.title = title;
+	Review(String name, String image, String content, Category... categories) {
+		this.name = name;
 		this.image = image;
 		this.content = content;
 		Set<Category> set = new HashSet<Category>();
@@ -50,8 +50,8 @@ public class Review {
 		return content;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
 	public Collection<Category> getCategories() {
