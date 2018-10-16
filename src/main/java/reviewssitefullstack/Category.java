@@ -23,8 +23,12 @@ public class Category {
 	Category() {
 	}
 
-	public Category(String name) {
+	Category(String name) {
 		this.name = name;
+	}
+
+	public Collection<Review> getReviews() {
+		return reviews;
 	}
 
 	public long getId() {

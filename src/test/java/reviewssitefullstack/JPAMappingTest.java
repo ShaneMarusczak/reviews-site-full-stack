@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertThat;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -96,6 +97,39 @@ public class JPAMappingTest {
 		testReview = result.get();
 
 		assertThat(testReview.getCategories(), containsInAnyOrder(testCategory, testCategory2));
+
+	}
+
+	@Test
+	public void shouldFindReviewsForCategory() {
+		Category testCategory = categoryRepo.save(new Category("test"));
+
+		Review testReview = reviewRepo.save(new Review("test", testCategory));
+		Review testReview2 = reviewRepo.save(new Review("test2", testCategory));
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Collection<Review> coursesForTopic = reviewRepo.findByCategoriesContains(testCategory);
+
+		assertThat(coursesForTopic, containsInAnyOrder(testReview, testReview2));
+
+	}
+
+	@Test
+	public void shouldFindReviewsforCategoryId() {
+		Category testCategory = categoryRepo.save(new Category("test"));
+		long categoryId = testCategory.getId();
+
+		Review testReview = reviewRepo.save(new Review("test", testCategory));
+		Review testReview2 = reviewRepo.save(new Review("test2", testCategory));
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Collection<Review> coursesForTopic = reviewRepo.findByCategoriesId(categoryId);
+
+		assertThat(coursesForTopic, containsInAnyOrder(testReview, testReview2));
 
 	}
 
