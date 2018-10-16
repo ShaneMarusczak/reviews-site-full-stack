@@ -17,6 +17,8 @@ public class Review {
 	private long id;
 
 	private String title;
+	private String image;
+	private String content;
 
 	@ManyToMany
 	private Collection<Category> categories;
@@ -25,8 +27,10 @@ public class Review {
 	Review() {
 	}
 
-	Review(String title, Category... categories) {
+	Review(String title, String image, String content, Category... categories) {
 		this.title = title;
+		this.image = image;
+		this.content = content;
 		Set<Category> set = new HashSet<Category>();
 		for (Category cat : categories) {
 			set.add(cat);
@@ -36,6 +40,14 @@ public class Review {
 
 	public long getId() {
 		return id;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+	
+	public String getContent() {
+		return content;
 	}
 
 	public String getTitle() {

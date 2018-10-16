@@ -32,7 +32,7 @@ public class JPAMappingTest {
 	@Test
 	public void shouldSaveAndLoadReview() {
 		Category testCategory = categoryRepo.save(new Category("Category"));
-		Review testReview = reviewRepo.save(new Review("Review", testCategory));
+		Review testReview = reviewRepo.save(new Review("Review", null, null, testCategory));
 		long reviewId = testReview.getId();
 
 		entityManager.flush();
@@ -47,7 +47,7 @@ public class JPAMappingTest {
 	@Test
 	public void shouldGenerateReviewId() {
 		Category testCategory = categoryRepo.save(new Category("Category"));
-		Review testReview = reviewRepo.save(new Review("Review", testCategory));
+		Review testReview = reviewRepo.save(new Review("Review", null, null, testCategory));
 		long reviewId = testReview.getId();
 
 		entityManager.flush();
@@ -86,7 +86,7 @@ public class JPAMappingTest {
 		Category testCategory = categoryRepo.save(new Category("testtest"));
 		Category testCategory2 = categoryRepo.save(new Category("testtesttest"));
 
-		Review testReview = new Review("test", testCategory, testCategory2);
+		Review testReview = new Review("test", null, null, testCategory, testCategory2);
 		testReview = reviewRepo.save(testReview);
 		long reviewId = testReview.getId();
 
@@ -104,8 +104,8 @@ public class JPAMappingTest {
 	public void shouldFindReviewsForCategory() {
 		Category testCategory = categoryRepo.save(new Category("test"));
 
-		Review testReview = reviewRepo.save(new Review("test", testCategory));
-		Review testReview2 = reviewRepo.save(new Review("test2", testCategory));
+		Review testReview = reviewRepo.save(new Review("test",null, null, testCategory));
+		Review testReview2 = reviewRepo.save(new Review("test2",null, null, testCategory));
 
 		entityManager.flush();
 		entityManager.clear();
@@ -121,8 +121,8 @@ public class JPAMappingTest {
 		Category testCategory = categoryRepo.save(new Category("test"));
 		long categoryId = testCategory.getId();
 
-		Review testReview = reviewRepo.save(new Review("test", testCategory));
-		Review testReview2 = reviewRepo.save(new Review("test2", testCategory));
+		Review testReview = reviewRepo.save(new Review("test", null, null, testCategory));
+		Review testReview2 = reviewRepo.save(new Review("test2",null, null, testCategory));
 
 		entityManager.flush();
 		entityManager.clear();
