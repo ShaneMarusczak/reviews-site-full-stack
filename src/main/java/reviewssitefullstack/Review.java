@@ -41,11 +41,11 @@ public class Review {
 	public long getId() {
 		return Id;
 	}
-	
+
 	public String getImage() {
 		return image;
 	}
-	
+
 	public String getContent() {
 		return content;
 	}
@@ -79,7 +79,5 @@ public class Review {
 			return false;
 		return true;
 	}
-	
-	
 
 }

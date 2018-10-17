@@ -52,7 +52,7 @@ public class CourseControllerTest {
 
 		testController.findOneReview(testReviewId, model);
 
-		verify(model).addAttribute("reviews", review);
+		verify(model).addAttribute("review", review);
 
 	}
 

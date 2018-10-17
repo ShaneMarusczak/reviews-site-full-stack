@@ -9,15 +9,16 @@
 	<header>
 		<h1>A list of categories</h1>
 	</header>
-	
-	<div th:each="review: ${reviews}">
+
+	<div th:each="category: ${categories}">
 		<h2>
-			<a th:href="@{review(id=${review.id})}" th:text = "${review.name}"></a>
+			<a th:href="@{category(id=${category.id})}" th:text="${category.name}"></a>
 		</h2>
-	
-	
-	
+
+
+
 	</div>
+	<a href="http://localhost:8080/all-reviews">Back To All Reviews</a>
 
 
 
