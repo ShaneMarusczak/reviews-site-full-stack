@@ -5,7 +5,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -16,7 +16,7 @@ public class Category {
 
 	private String name;
 
-	@ManyToMany(mappedBy = "categories")
+	@OneToMany(mappedBy = "category")
 	private Collection<Review> reviews;
 
 	// JPA

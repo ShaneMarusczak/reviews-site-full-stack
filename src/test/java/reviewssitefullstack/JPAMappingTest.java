@@ -82,25 +82,6 @@ public class JPAMappingTest {
 	}
 
 	@Test
-	public void shouldEstablishReviewToCategoryRelationship() {
-		Category testCategory = categoryRepo.save(new Category("testtest"));
-		Category testCategory2 = categoryRepo.save(new Category("testtesttest"));
-
-		Review testReview = new Review("test", null, null, testCategory, testCategory2);
-		testReview = reviewRepo.save(testReview);
-		long reviewId = testReview.getId();
-
-		entityManager.flush();
-		entityManager.clear();
-
-		Optional<Review> result = reviewRepo.findById(reviewId);
-		testReview = result.get();
-
-		assertThat(testReview.getCategories(), containsInAnyOrder(testCategory, testCategory2));
-
-	}
-
-	@Test
 	public void shouldFindReviewsForCategory() {
 		Category testCategory = categoryRepo.save(new Category("test"));
 
@@ -110,7 +91,7 @@ public class JPAMappingTest {
 		entityManager.flush();
 		entityManager.clear();
 
-		Collection<Review> coursesForTopic = reviewRepo.findByCategoriesContains(testCategory);
+		Collection<Review> coursesForTopic = reviewRepo.findByCategory(testCategory);
 
 		assertThat(coursesForTopic, containsInAnyOrder(testReview, testReview2));
 
@@ -127,7 +108,7 @@ public class JPAMappingTest {
 		entityManager.flush();
 		entityManager.clear();
 
-		Collection<Review> coursesForTopic = reviewRepo.findByCategoriesId(categoryId);
+		Collection<Review> coursesForTopic = reviewRepo.findByCategoryId(categoryId);
 
 		assertThat(coursesForTopic, containsInAnyOrder(testReview, testReview2));
 

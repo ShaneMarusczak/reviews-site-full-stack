@@ -41,7 +41,7 @@ public class ReviewController {
 
 		if (category.isPresent()) {
 			model.addAttribute("categories", category.get());
-			model.addAttribute("reviews", reviewRepo.findByCategoriesContains(category.get()));
+			model.addAttribute("reviews", reviewRepo.findByCategory(category.get()));
 			return "category";
 		}
 		throw new CategoryNotFoundException();

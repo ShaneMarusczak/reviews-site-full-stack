@@ -1,13 +1,9 @@
 package reviewssitefullstack;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -20,22 +16,18 @@ public class Review {
 	private String image;
 	private String content;
 
-	@ManyToMany
-	private Collection<Category> categories;
+	@ManyToOne
+	private Category category;
 
 	// JPA empty constructor
 	Review() {
 	}
 
-	Review(String name, String image, String content, Category... categories) {
+	Review(String name, String image, String content, Category category) {
 		this.name = name;
 		this.image = image;
 		this.content = content;
-		Set<Category> set = new HashSet<Category>();
-		for (Category cat : categories) {
-			set.add(cat);
-		}
-		this.categories = set;
+		this.category = category;
 	}
 
 	public long getId() {
@@ -54,8 +46,8 @@ public class Review {
 		return name;
 	}
 
-	public Collection<Category> getCategories() {
-		return categories;
+	public Category getCategory() {
+		return category;
 	}
 
 	@Override
