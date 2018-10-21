@@ -1,0 +1,29 @@
+/*ReviewPageStyleSheet.css*/
+body {
+	background-image: url("/images/img0.jpg");
+	background-size: 100%;
+}
+
+
+/*figure {
+	width: 25vw;
+}
+
+figure #picture {
+	max-width: 100%;
+	height: auto;
+}
+
+#category {
+	font-size: large;
+}*/
+
+:root{
+	font-color: white;
+}
+
+A:hover {
+	COLOR: white;
+	TEXT-DECORATION: none;
+	font-weight: none
+}

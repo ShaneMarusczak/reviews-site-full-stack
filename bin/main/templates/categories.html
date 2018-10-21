@@ -3,16 +3,18 @@
 
 <head>
 <title>A list of Categories</title>
+<link rel="stylesheet" type="text/css"
+	href="/css/ReviewPageStyleSheet.css" />
 </head>
 
 <body>
-	<header>
-		<h1>A list of categories</h1>
-	</header>
+	<h1><font color="white">A list of Categories</font></h1>
+
 
 	<div th:each="category: ${categories}">
 		<h2>
-			<a th:href="@{category(id=${category.id})}" th:text="${category.name}"></a>
+			<a th:href="@{category(id=${category.id})}"
+				th:text="${category.name}"></a>
 		</h2>
 
 

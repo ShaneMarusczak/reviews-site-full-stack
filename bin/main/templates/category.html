@@ -5,15 +5,17 @@
 
 <head>
 <title>A Category</title>
+<link rel="stylesheet" type="text/css"
+	href="/css/ReviewPageStyleSheet.css" />
 </head>
 
 <body>
-	<header>
-		<h1>A Category</h1>
-	</header>
+	<h1>
+		<font color="white">A Category</font>
+	</h1>
 
 	<div th:each="category: ${categories}">
-		<h2 th:text="${category.name}"></h2>
+		<h2 style="color: white" th:text="${category.name}"></h2>
 	</div>
 
 	<div th:each="review: ${reviews}">
@@ -25,7 +27,8 @@
 
 	</div>
 	<a href="http://localhost:8080/all-reviews">Back to All Reviews</a>
-	<a href="http://localhost:8080/all-categories">Back to All Categories</a>
+	<a href="http://localhost:8080/all-categories">Back to All
+		Categories</a>
 
 
 
