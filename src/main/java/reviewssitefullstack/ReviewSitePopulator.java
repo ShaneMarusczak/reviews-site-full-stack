@@ -25,7 +25,7 @@ public class ReviewSitePopulator implements CommandLineRunner {
 		
 		Review testReview1 = new Review("Spot", "spot.png", "Spot is a carefree puppy that likes to play!", test1);
 		testReview1 = reviewRepo.save(testReview1);
-		Review testReview2 = new Review("Garfield", "garfield.jpg", "Garfield is a very lazy and slow cat that loves lasagna.", test2);
+		Review testReview2 = new Review("Garfield", "garfield.jpg", "Garfield is a very, very lazy and slow cat that loves lasagna.", test2);
 		testReview2 = reviewRepo.save(testReview2);
 		Review testReview3 = new Review("Tweety", "tweety.jpg", "Tweety is a smart bird that is always staying just out of reach of Sylvester.", test3);
 		testReview3 = reviewRepo.save(testReview3);
