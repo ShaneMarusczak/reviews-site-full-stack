@@ -52,5 +52,12 @@ public class ReviewController {
 		model.addAttribute("categories", categoryRepo.findAll());
 		return "categories";
 	}
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -84,5 +84,12 @@ public class CourseControllerTest {
 		testController.findAllCategories(model);
 		verify(model).addAttribute("categories", allCategories);
 	}
+	
+	
+	
+	
+	
+	
+	
 
 }

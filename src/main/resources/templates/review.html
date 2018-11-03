@@ -13,12 +13,19 @@
 		<img id="picture" th:src="@{/images/{image}(image=${review.image})}" />
 	</figure>
 
+	
+
 
 	<p id="content" th:text="${review.content}"></p>
 	<a href="http://localhost:8080/all-reviews">Back to All Reviews</a>
 	<a href="http://localhost:8080/all-categories">Back to All
 		Categories</a>
-
-
+		
+	<form>
+	<input type="text">
+	<input type="submit">
+	</form>
+		
+	
 </body>
 </html>

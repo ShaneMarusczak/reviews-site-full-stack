@@ -1,9 +1,13 @@
 package reviewssitefullstack;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -18,6 +22,13 @@ public class Review {
 
 	@ManyToOne
 	private Category category;
+	
+	@ManyToMany(mappedBy = "reviews")
+	private Collection<Tag> tags;
+	
+	@OneToMany(mappedBy = "review")
+	private Collection<Comment> comments;
+	
 
 	// JPA empty constructor
 	Review() {
